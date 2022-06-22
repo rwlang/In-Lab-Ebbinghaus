@@ -66,6 +66,248 @@ document.body.style.color = "black"
           "title": "Continue to Experiment"
         },
         {
+          "type": "lab.html.Screen",
+          "files": {},
+          "responses": {
+            "": ""
+          },
+          "parameters": {},
+          "messageHandlers": {
+            "before:prepare": function anonymous(
+) {
+/* Get the documentElement (<html>) to display the page in fullscreen */
+var elem = document.documentElement;
+
+/* View in fullscreen */
+this.options.events['click button#fullscreen'] = function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+  }
+
+/* Continue to next screen */
+this.end()
+}
+}
+          },
+          "title": "Fullscreen",
+          "content": "\u003Cbutton id=\"fullscreen\"\u003EPress to enter full screen\u003C\u002Fbutton\u003E"
+        },
+        {
+          "type": "lab.flow.Loop",
+          "templateParameters": [
+            {
+              "Horizontal_Pos": "0",
+              "Vertical_Pos": "0",
+              "": "Center"
+            },
+            {
+              "Horizontal_Pos": "-175",
+              "Vertical_Pos": "0",
+              "": "Left"
+            },
+            {
+              "Horizontal_Pos": "0",
+              "Vertical_Pos": "-175",
+              "": "High"
+            },
+            {
+              "Horizontal_Pos": "0",
+              "Vertical_Pos": "175",
+              "": "Low"
+            },
+            {
+              "Horizontal_Pos": "175",
+              "Vertical_Pos": "0",
+              "": "Right"
+            }
+          ],
+          "sample": {
+            "mode": "sequential",
+            "n": ""
+          },
+          "files": {},
+          "responses": {
+            "": ""
+          },
+          "parameters": {},
+          "messageHandlers": {},
+          "title": "Screen Setup",
+          "shuffleGroups": [],
+          "template": {
+            "type": "lab.flow.Sequence",
+            "files": {},
+            "responses": {
+              "": ""
+            },
+            "parameters": {},
+            "messageHandlers": {},
+            "title": "Sequence",
+            "content": [
+              {
+                "type": "lab.canvas.Screen",
+                "content": [
+                  {
+                    "type": "circle",
+                    "left": "${parameters.Horizontal_Pos}",
+                    "top": "${parameters.Vertical_Pos}",
+                    "angle": 0,
+                    "width": "18",
+                    "height": 4,
+                    "stroke": "#000000",
+                    "strokeWidth": 1,
+                    "fill": "#ffffff"
+                  },
+                  {
+                    "type": "aoi",
+                    "left": "${parameters.Horizontal_Pos}",
+                    "top": "${parameters.Vertical_Pos}",
+                    "angle": 0,
+                    "width": "2",
+                    "height": "2",
+                    "stroke": null,
+                    "strokeWidth": 1,
+                    "fill": "rgba(0, 0, 0, 0.2)",
+                    "label": "Center"
+                  },
+                  {
+                    "type": "circle",
+                    "left": "${parameters.Horizontal_Pos}",
+                    "top": "${parameters.Vertical_Pos}",
+                    "angle": 0,
+                    "width": 2.46,
+                    "height": 2.46,
+                    "stroke": null,
+                    "strokeWidth": 1,
+                    "fill": "black"
+                  }
+                ],
+                "viewport": [
+                  800,
+                  600
+                ],
+                "files": {},
+                "responses": {
+                  "click @Center": "Center",
+                  "click @Low": "Low",
+                  "click @High": "High",
+                  "click @Right": "Right",
+                  "click @Left": "Left",
+                  "click @Top_Left": "Top_Left",
+                  "click @Top_Right": "Top_Right",
+                  "click @Bottom_Left": "Bottom_Left",
+                  "click @Bottom_Right": "Bottom_Right"
+                },
+                "parameters": {},
+                "messageHandlers": {},
+                "title": "Calibration",
+                "plugins": [
+                  {
+                    "type": "mousetrap",
+                    "mode": "mousetrap",
+                    "path": "global.MousetrapPlugin"
+                  }
+                ]
+              },
+              {
+                "type": "lab.canvas.Screen",
+                "content": [
+                  {
+                    "type": "image",
+                    "left": 0,
+                    "top": 0,
+                    "angle": 0,
+                    "width": "600",
+                    "height": "600",
+                    "stroke": null,
+                    "strokeWidth": 0,
+                    "fill": "black",
+                    "src": "${ this.files[\"screen.jpeg\"] }"
+                  }
+                ],
+                "viewport": [
+                  800,
+                  600
+                ],
+                "files": {
+                  "screen.jpeg": "embedded\u002F0444150c2c031ef7f44caaa0725897453f39206c03dab57ddf1d6532b6aec5b0.jpeg"
+                },
+                "responses": {
+                  "": ""
+                },
+                "parameters": {},
+                "messageHandlers": {},
+                "title": "Mask",
+                "timeout": "200"
+              }
+            ]
+          }
+        },
+        {
+          "type": "lab.html.Page",
+          "items": [
+            {
+              "type": "text",
+              "content": "This document contains important information about in-person research during the COVID-19 public health crisis. COVID-19 (also called SARS-CoV2) is an illness caused by the coronavirus. Coronaviruses are most commonly spread from an infected person through: a) respiratory droplets when you cough or sneeze; b) close personal contact, such as touching or shaking hands; or c) touching something with the virus on it, then touching your eyes, nose or mouth before washing your hands. "
+            },
+            {
+              "required": true,
+              "type": "text",
+              "content": "If you feel that you are from a group that is more vulnerable to COVID-19 effects (e.g., senior (over the age of 60 years), immuno-compromised), please discuss your participation with the research team before providing your consent. You are under no obligation to participate and can change your mind about participating in the research at any time and without consequence. The University of Manitoba is committed to taking measures to protect the health and safety of their campuses and the wider community. We will follow University of Manitoba protocols which include:"
+            },
+            {
+              "required": true,
+              "type": "text",
+              "content": "•\tAll study research teams are wearing 3-ply reusable or disposable masks. You are also required to wear a mask. "
+            },
+            {
+              "required": true,
+              "type": "text",
+              "content": "•\tWe also require all of our employees to screen themselves for symptoms daily before they come into work, and we’ll screen you for symptoms the day of your visit. "
+            },
+            {
+              "required": true,
+              "type": "text",
+              "content": "•\tWe will provide you with a screening questionnaire. Please complete this on the morning of your visit. If you answer yes to any of the questions, please email us to reschedule your visit. You should not attend any visits if you are not feeling well or exhibiting any symptoms of COVID-19, if you have been a close contact with someone with COVID-19 (or awaiting tests results), or have been told by a health official to self-isolate. "
+            },
+            {
+              "required": true,
+              "type": "text",
+              "content": "•\tWe are following meticulous infection control practices, including disinfection of study materials, and hand washing. "
+            },
+            {
+              "required": true,
+              "type": "text",
+              "content": "•\tWe ask that you attend the study alone. Accommodations can be made if necessary. Please let us know ahead of time if you require someone to attend with you. "
+            },
+            {
+              "required": true,
+              "type": "text",
+              "content": "The University of Manitoba is closely watching the situation in Manitoba and may restrict in- person research at any time. We will continue to keep you informed as to changes that may occur to this study. \nIf you have questions regarding this study, measures we are taking to keep all parties safe, or have any concerns, please do not hesitate to ask. You can contact any of the above named researchers or the Human Ethics office at humanethics@umanitoba.ca\n"
+            },
+            {
+              "required": true,
+              "type": "text",
+              "title": "Please click 'Continue' to proceed to the Experiment Consent Form"
+            }
+          ],
+          "scrollTop": true,
+          "submitButtonText": "Continue →",
+          "submitButtonPosition": "right",
+          "files": {},
+          "responses": {
+            "": ""
+          },
+          "parameters": {},
+          "messageHandlers": {},
+          "title": "Page"
+        },
+        {
           "type": "lab.html.Page",
           "items": [
             {
@@ -103,38 +345,44 @@ document.body.style.color = "black"
             {
               "required": true,
               "type": "text",
-              "content": "We are interested in how your perception of a circle affects your performance when clicking on it.",
+              "title": "Source of Support: NSERC Discovery Grant",
+              "content": "This consent form, a copy of which will be left with you for your records and reference, is only part of the process of informed consent. It should give you the basic idea of what the research is about and what your participation will involve. If you would like more detail about something mentioned here, or information not included here, you should feel free to ask. Please take the time to read this carefully and to understand any accompanying information."
+            },
+            {
+              "required": true,
+              "type": "text",
+              "content": "We are interested in how your perception of a circle affects your performance when clicking it.",
               "title": "Purpose:"
             },
             {
               "required": true,
               "type": "text",
               "title": "Description:",
-              "content": "This study will last approximately 30 minutes.  During the experiment you will be asked to click on circular targets as quickly and as accurately as possible.  Prior to this task, you will be asked to fill out a brief questionnaire involving questions about your age, sex, handedness, vision, and the device you are currently using to complete the experiment."
+              "content": "This study will last approximately 30 minutes. During the experiment you will be asked to click on circular targets as quickly and as accurately as possible. Prior to this task, you will be asked to fill out a brief questionnaire involving questions about your age, sex, handedness, and your vision."
             },
             {
               "required": true,
               "type": "text",
               "title": "Risks and Benefits:",
-              "content": "There are no risks (physical, psychological, and\u002For emotional) inherent in the tasks you will perform, but some of the tests may be repetitive.  By participating in this study you will be providing valuable data regarding how the way we perceive our visual environment affects the way we interact with it."
+              "content": "There are no risks (physical, psychological, and\u002For emotional) inherent in the tasks you will perform, but some of the tests may be repetitive. By participating in this study, you will be providing valuable data regarding about how our perception of the environment affects the way we interact with it."
             },
             {
               "required": true,
               "type": "text",
               "title": "Costs and Payments:",
-              "content": "There are no fees or charges to participate in this study.  You will receive 1 experimental credit for your participation in this study."
+              "content": "There are no fees or charges to participate in this study. You will receive 1 experimental credit for your participation in this study."
             },
             {
               "required": true,
               "type": "text",
               "title": "Confidentiality",
-              "content": "Your information will be kept confidential.  You will be referred to by a code number.  After completing the experiment, all identifying information will be saved separately from your experimental data, and will only be used to assign you participation credit.  Your files will only be accessible by the investigators.  Results from this study will be disseminated through conference presentations and refereed publications.  Participant confidentiality will not be jeopardized."
+              "content": "Your information will be kept confidential. You will be referred to by a code number. After completing the experiment, all identifying information will be saved separately from your experimental data and will only be used to assign you participation credit. Your files will only be accessible by the investigators. Summary results from this study will be disseminated through conference presentations and refereed publications. Participant confidentiality will not be jeopardized."
             },
             {
               "required": true,
               "type": "text",
               "title": "Voluntary Consent",
-              "content": "By selecting the 'I Consent' option below, you are indicating that you have understood to your satisfaction the information regarding participation in the research project and agree to participate as a subject.  In no way does this waive your legal rights nor release the researchers, sponsors, or involved institutions form their legal and professional responsibilities.  You are free to withdraw from the study at any time by exiting your browser (participation is completely voluntary), and\u002For refrain from answering any questions you prefer to omit, without prejudice or consequence.  You will also still receive your participation credit if you encounter any technical difficulties, and cannot continue.  This means that should you choose to withdraw at any point from the study, you will still receive 1 participation credit."
+              "content": "By selecting the 'I Consent' option below, you are indicating that you have understood to your satisfaction the information regarding participation in the research project and agree to participate as a subject. In no way does this waive your legal rights nor release the researchers, sponsors, or involved institutions form their legal and professional responsibilities. You are free to withdraw from the study at any time (participation is completely voluntary), and\u002For refrain from answering any questions you prefer to omit, without prejudice or consequence. This means that should you choose to withdraw at any point from the study, you will still receive 1 participation credit."
             },
             {
               "required": true,
@@ -144,7 +392,8 @@ document.body.style.color = "black"
             {
               "required": true,
               "type": "text",
-              "content": "This research has been approved by the Research Ethics Board (REB 1) of the University of Manitoba.  If you have any concerns or complaints about this project you may contact any of the above named persons or the Human Ethics Coordinator (HEC) at (204) 474-7122 (Email: humanethics@umanitoba.ca)."
+              "content": "The University of Manitoba may look at your research records to see that the research is being done in a safe and proper way. This research has been approved by the Research Ethics Board (REB1) of the university of Manitoba. If you have any concerns or complaints about this project you may contact any of the above named persons or the Human Ethics Coordinator (HEC) at (204) 474-7122 (Email: humanethics@umanitoba.ca).",
+              "title": ""
             },
             {
               "required": true,
@@ -171,7 +420,8 @@ document.body.style.color = "black"
             {
               "required": true,
               "type": "text",
-              "content": "Thank you for your participation!"
+              "content": "Thank you for your participation!",
+              "title": ""
             }
           ],
           "scrollTop": true,
@@ -474,39 +724,6 @@ document.body.style.color = "black"
           "title": "Demographics"
         },
         {
-          "type": "lab.html.Screen",
-          "files": {},
-          "responses": {
-            "": ""
-          },
-          "parameters": {},
-          "messageHandlers": {
-            "before:prepare": function anonymous(
-) {
-/* Get the documentElement (<html>) to display the page in fullscreen */
-var elem = document.documentElement;
-
-/* View in fullscreen */
-this.options.events['click button#fullscreen'] = function openFullscreen() {
-  if (elem.requestFullscreen) {
-    elem.requestFullscreen();
-  } else if (elem.mozRequestFullScreen) { /* Firefox */
-    elem.mozRequestFullScreen();
-  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
-    elem.webkitRequestFullscreen();
-  } else if (elem.msRequestFullscreen) { /* IE/Edge */
-    elem.msRequestFullscreen();
-  }
-
-/* Continue to next screen */
-this.end()
-}
-}
-          },
-          "title": "Fullscreen",
-          "content": "\u003Cbutton id=\"fullscreen\"\u003EPress to enter full screen\u003C\u002Fbutton\u003E"
-        },
-        {
           "type": "lab.html.Page",
           "items": [
             {
@@ -517,27 +734,22 @@ this.end()
             {
               "required": true,
               "type": "text",
-              "content": "This experiment involves 4 parts:"
+              "content": "This experiment involves 3 parts:"
             },
             {
               "required": true,
               "type": "text",
-              "content": "Part 1: Screen Setup"
+              "content": "Part 1: Practice\n\n"
             },
             {
               "required": true,
               "type": "text",
-              "content": "Part 2: Practice\n\n"
+              "content": "Part 2: Experimental Trials"
             },
             {
               "required": true,
               "type": "text",
-              "content": "Part 3: Experimental Trials"
-            },
-            {
-              "required": true,
-              "type": "text",
-              "content": "Part 4: Size Judgment"
+              "content": "Part 3: Size Judgment"
             },
             {
               "required": true,
@@ -602,161 +814,11 @@ document.body.style.color = "black"
           "title": "Screen Set Up Instructions"
         },
         {
-          "type": "lab.flow.Loop",
-          "templateParameters": [
-            {
-              "Horizontal_Pos": "0",
-              "Vertical_Pos": "0",
-              "": "Center"
-            },
-            {
-              "Horizontal_Pos": "-175",
-              "Vertical_Pos": "0",
-              "": "Left"
-            },
-            {
-              "Horizontal_Pos": "0",
-              "Vertical_Pos": "-175",
-              "": "High"
-            },
-            {
-              "Horizontal_Pos": "0",
-              "Vertical_Pos": "175",
-              "": "Low"
-            },
-            {
-              "Horizontal_Pos": "175",
-              "Vertical_Pos": "0",
-              "": "Right"
-            }
-          ],
-          "sample": {
-            "mode": "draw-shuffle",
-            "n": ""
-          },
-          "files": {},
-          "responses": {
-            "": ""
-          },
-          "parameters": {},
-          "messageHandlers": {},
-          "title": "Screen Setup",
-          "shuffleGroups": [],
-          "template": {
-            "type": "lab.flow.Sequence",
-            "files": {},
-            "responses": {
-              "": ""
-            },
-            "parameters": {},
-            "messageHandlers": {},
-            "title": "Sequence",
-            "content": [
-              {
-                "type": "lab.canvas.Screen",
-                "content": [
-                  {
-                    "type": "circle",
-                    "left": "${parameters.Horizontal_Pos}",
-                    "top": "${parameters.Vertical_Pos}",
-                    "angle": 0,
-                    "width": "18",
-                    "height": 4,
-                    "stroke": "#000000",
-                    "strokeWidth": 1,
-                    "fill": "#ffffff"
-                  },
-                  {
-                    "type": "aoi",
-                    "left": "${parameters.Horizontal_Pos}",
-                    "top": "${parameters.Vertical_Pos}",
-                    "angle": 0,
-                    "width": "2",
-                    "height": "2",
-                    "stroke": null,
-                    "strokeWidth": 1,
-                    "fill": "rgba(0, 0, 0, 0.2)",
-                    "label": "Center"
-                  },
-                  {
-                    "type": "circle",
-                    "left": "${parameters.Horizontal_Pos}",
-                    "top": "${parameters.Vertical_Pos}",
-                    "angle": 0,
-                    "width": 2.46,
-                    "height": 2.46,
-                    "stroke": null,
-                    "strokeWidth": 1,
-                    "fill": "black"
-                  }
-                ],
-                "viewport": [
-                  800,
-                  600
-                ],
-                "files": {},
-                "responses": {
-                  "click @Center": "Center",
-                  "click @Low": "Low",
-                  "click @High": "High",
-                  "click @Right": "Right",
-                  "click @Left": "Left",
-                  "click @Top_Left": "Top_Left",
-                  "click @Top_Right": "Top_Right",
-                  "click @Bottom_Left": "Bottom_Left",
-                  "click @Bottom_Right": "Bottom_Right"
-                },
-                "parameters": {},
-                "messageHandlers": {},
-                "title": "Calibration",
-                "plugins": [
-                  {
-                    "type": "mousetrap",
-                    "mode": "mousetrap",
-                    "path": "global.MousetrapPlugin"
-                  }
-                ]
-              },
-              {
-                "type": "lab.canvas.Screen",
-                "content": [
-                  {
-                    "type": "image",
-                    "left": 0,
-                    "top": 0,
-                    "angle": 0,
-                    "width": "600",
-                    "height": "600",
-                    "stroke": null,
-                    "strokeWidth": 0,
-                    "fill": "black",
-                    "src": "${ this.files[\"screen.jpeg\"] }"
-                  }
-                ],
-                "viewport": [
-                  800,
-                  600
-                ],
-                "files": {
-                  "screen.jpeg": "embedded\u002F0444150c2c031ef7f44caaa0725897453f39206c03dab57ddf1d6532b6aec5b0.jpeg"
-                },
-                "responses": {
-                  "": ""
-                },
-                "parameters": {},
-                "messageHandlers": {},
-                "title": "Mask",
-                "timeout": "200"
-              }
-            ]
-          }
-        },
-        {
           "type": "lab.html.Page",
           "items": [
             {
               "type": "text",
-              "title": "Part 2: Practice",
+              "title": "Part 1: Practice",
               "content": "A grey 'start' button will appear in the center of the screen. Press this button to begin each trial."
             },
             {
@@ -770,7 +832,7 @@ document.body.style.color = "black"
             {
               "required": true,
               "type": "text",
-              "content": "When the target circle appears, click the center of the target circle AS QUICKLY AND AS ACCURATELY AS POSSIBLE.\n\n"
+              "content": "When the target circle appears, use the trackpad on the desk in front of you to click the center of the target circle AS QUICKLY AND AS ACCURATELY AS POSSIBLE.\n\n"
             },
             {
               "required": true,
@@ -1011,7 +1073,14 @@ this.options.viewportScale = 1
                 },
                 "parameters": {},
                 "messageHandlers": {},
-                "title": "Start Button"
+                "title": "Start Button",
+                "plugins": [
+                  {
+                    "type": "mousetrap",
+                    "mode": "mousetrap",
+                    "path": "global.MousetrapPlugin"
+                  }
+                ]
               },
               {
                 "type": "lab.canvas.Screen",
@@ -1130,7 +1199,7 @@ this.options.viewportScale = 1
           "items": [
             {
               "type": "text",
-              "title": "Part 3: Experimental Trials",
+              "title": "Part 2: Experimental Trials",
               "content": "Click the 'Continue' button to begin the actual experiment"
             }
           ],
@@ -1143,8 +1212,7 @@ this.options.viewportScale = 1
           },
           "parameters": {},
           "messageHandlers": {},
-          "title": "Experimental Trials Instructions",
-          "skip": true
+          "title": "Experimental Trials Instructions"
         },
         {
           "type": "lab.flow.Loop",
@@ -1292,7 +1360,6 @@ this.options.viewportScale = 1
 }
           },
           "title": "Experimental Trials_Vis",
-          "skip": true,
           "shuffleGroups": [],
           "template": {
             "type": "lab.flow.Sequence",
@@ -1358,7 +1425,14 @@ this.options.viewportScale = 1
                 },
                 "parameters": {},
                 "messageHandlers": {},
-                "title": "Start Button"
+                "title": "Start Button",
+                "plugins": [
+                  {
+                    "type": "mousetrap",
+                    "mode": "mousetrap",
+                    "path": "global.MousetrapPlugin"
+                  }
+                ]
               },
               {
                 "type": "lab.canvas.Screen",
@@ -1831,8 +1905,7 @@ this.options.viewportScale = 1
                     "stroke": null,
                     "strokeWidth": 0,
                     "fill": "black",
-                    "src": "${ this.files[\"screen.jpeg\"] }",
-                    "autoScale": undefined
+                    "src": "${ this.files[\"screen.jpeg\"] }"
                   }
                 ],
                 "viewport": [
@@ -2174,8 +2247,7 @@ this.options.viewportScale = 1
                     "stroke": null,
                     "strokeWidth": 0,
                     "fill": "black",
-                    "src": "${ this.files[\"screen.jpeg\"] }",
-                    "autoScale": undefined
+                    "src": "${ this.files[\"screen.jpeg\"] }"
                   }
                 ],
                 "viewport": [
@@ -2221,7 +2293,7 @@ this.options.viewportScale = 1
           "items": [
             {
               "type": "text",
-              "title": "Part 4: Size Judgement",
+              "title": "Part 3: Size Judgement",
               "content": "You will be shown two target circles, one of which is slightly larger than the other."
             },
             {
@@ -2272,8 +2344,7 @@ this.options.viewport = [800, 600]
 this.options.viewportScale = 1
 }
           },
-          "title": "Percept Compare Instructions",
-          "skip": true
+          "title": "Percept Compare Instructions"
         },
         {
           "type": "lab.flow.Loop",
@@ -2420,7 +2491,6 @@ this.options.viewportScale = 1
           "parameters": {},
           "messageHandlers": {},
           "title": "Perceptual Comparison",
-          "skip": true,
           "shuffleGroups": [],
           "template": {
             "type": "lab.flow.Sequence",
@@ -2432,6 +2502,63 @@ this.options.viewportScale = 1
             "messageHandlers": {},
             "title": "Sequence",
             "content": [
+              {
+                "type": "lab.canvas.Screen",
+                "content": [
+                  {
+                    "type": "aoi",
+                    "left": 0,
+                    "top": "0",
+                    "angle": 0,
+                    "width": 20.84,
+                    "height": 20.84,
+                    "stroke": null,
+                    "strokeWidth": 1,
+                    "fill": "rgba(0, 0, 0, 0.2)",
+                    "label": "Start_Button"
+                  },
+                  {
+                    "type": "rect",
+                    "left": "0",
+                    "top": "0",
+                    "angle": 0,
+                    "width": "600",
+                    "height": "600",
+                    "stroke": null,
+                    "strokeWidth": 1,
+                    "fill": "black"
+                  },
+                  {
+                    "type": "circle",
+                    "left": 0,
+                    "top": "0",
+                    "angle": 0,
+                    "width": 15,
+                    "height": 15,
+                    "stroke": "#aaaaaa",
+                    "strokeWidth": 1,
+                    "fill": "#dddddd"
+                  }
+                ],
+                "viewport": [
+                  800,
+                  600
+                ],
+                "files": {},
+                "responses": {
+                  "click @Start_Button": "Start Position"
+                },
+                "parameters": {},
+                "messageHandlers": {},
+                "title": "Start Button",
+                "plugins": [
+                  {
+                    "type": "mousetrap",
+                    "mode": "mousetrap",
+                    "path": "global.MousetrapPlugin"
+                  }
+                ]
+              },
               {
                 "type": "lab.canvas.Screen",
                 "content": [
@@ -2629,20 +2756,8 @@ this.end()
             {
               "required": true,
               "type": "text",
-              "title": "Debriefing:",
-              "content": "The purpose of this study was to measure how the perception of a circle's size influences how accurately participants judge the location of that circle's center.  To bias size perception, we used a commonly known illusion often referred to as the 'Ebbinghaus Illusion'.  This illusion involves surrounding a middle circle with a ring of larger or smaller circles.\n\nIn this illusion, a circle is usually perceived as larger when surrounded by smaller circles, while an identical sized circle is typically perceived as smaller when surrounded by larger circles.  During the experiment, you were required to choose the larger of two circles.  In some of those trials, the target circles were actually the same size, even though the illusion may have made them appear smaller or larger."
-            },
-            {
-              "required": true,
-              "type": "text",
-              "title": "",
-              "content": "If you have any questions about this study, please contact us:"
-            },
-            {
-              "required": true,
-              "type": "text",
               "content": "Ryan Langridge (PhD Candidate, Psychology, University of Manitoba, langrirw@myumanitoba.ca),",
-              "title": ""
+              "title": "Principal Investigators:"
             },
             {
               "required": true,
@@ -2658,12 +2773,18 @@ this.end()
               "required": true,
               "type": "text",
               "content": "Dr. Jonathan Marotta (Professor, Psychology, University of Manitoba, Jonathan.Marotta@umanitoba.ca)",
-              "title": ""
+              "title": "Supervisor:"
             },
             {
               "required": true,
               "type": "text",
-              "content": "Or, you can contact the Human Ethics Coordinator at humanethics@umanitoba.ca.",
+              "title": "Debriefing:",
+              "content": "The purpose of this study was to measure how the perception of a circle's size influences how accurately participants judge the location of that circle's center.  To bias size perception, we used a commonly known illusion often referred to as the 'Ebbinghaus Illusion'.  This illusion involves surrounding a middle circle with a ring of larger or smaller circles.\n\nIn this illusion, a circle is usually perceived as larger when surrounded by smaller circles, while an identical sized circle is typically perceived as smaller when surrounded by larger circles.  During the experiment, you were required to choose the larger of two circles.  In some of those trials, the target circles were actually the same size, even though the illusion may have made them appear smaller or larger."
+            },
+            {
+              "required": true,
+              "type": "text",
+              "content": "If you have any questions about this study, please feel free to contact us. Or, you can contact the Human Ethics Coordinator at humanethics@umanitoba.ca.",
               "title": ""
             },
             {
