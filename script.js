@@ -99,6 +99,38 @@ this.end()
           "content": "\u003Cbutton id=\"fullscreen\"\u003EPress to enter full screen\u003C\u002Fbutton\u003E"
         },
         {
+          "type": "lab.html.Page",
+          "items": [
+            {
+              "type": "text",
+              "title": "Part 1: First, a quick task to get your screen set-up for the experiment.",
+              "content": "Click the center of each circle with your cursor.  \n\nTIP: You may need to be very precise with your clicking."
+            },
+            {
+              "required": true,
+              "type": "text",
+              "title": "Click 'Continue' when ready to proceed."
+            }
+          ],
+          "scrollTop": true,
+          "submitButtonText": "Continue →",
+          "submitButtonPosition": "right",
+          "files": {},
+          "responses": {
+            "": ""
+          },
+          "parameters": {},
+          "messageHandlers": {
+            "after:end": function anonymous(
+) {
+document.body.style.backgroundColor = "white"
+document.body.style.color = "black"
+}
+          },
+          "title": "Screen Set Up Instructions",
+          "skip": true
+        },
+        {
           "type": "lab.flow.Loop",
           "templateParameters": [
             {
@@ -781,37 +813,6 @@ lab.util.fullscreen.launch(document.body)
 }
           },
           "title": "Introduction"
-        },
-        {
-          "type": "lab.html.Page",
-          "items": [
-            {
-              "type": "text",
-              "title": "Part 1: First, a quick task to get your screen set-up for the experiment.",
-              "content": "Click the center of each circle with your cursor.  \n\nTIP: You may need to be very precise with your clicking."
-            },
-            {
-              "required": true,
-              "type": "text",
-              "title": "Click 'Continue' when ready to proceed."
-            }
-          ],
-          "scrollTop": true,
-          "submitButtonText": "Continue →",
-          "submitButtonPosition": "right",
-          "files": {},
-          "responses": {
-            "": ""
-          },
-          "parameters": {},
-          "messageHandlers": {
-            "after:end": function anonymous(
-) {
-document.body.style.backgroundColor = "white"
-document.body.style.color = "black"
-}
-          },
-          "title": "Screen Set Up Instructions"
         },
         {
           "type": "lab.html.Page",
@@ -1503,7 +1504,359 @@ this.options.viewportScale = 1
                 },
                 "parameters": {},
                 "messageHandlers": {},
-                "title": "Practice",
+                "title": "Trial",
+                "plugins": [
+                  {
+                    "type": "mousetrap",
+                    "mode": "mousetrap",
+                    "path": "global.MousetrapPlugin"
+                  }
+                ]
+              },
+              {
+                "type": "lab.canvas.Screen",
+                "content": [
+                  {
+                    "type": "image",
+                    "left": 0,
+                    "top": 0,
+                    "angle": 0,
+                    "width": "600",
+                    "height": "600",
+                    "stroke": null,
+                    "strokeWidth": 0,
+                    "fill": "black",
+                    "src": "${ this.files[\"screen.jpeg\"] }"
+                  }
+                ],
+                "viewport": [
+                  800,
+                  600
+                ],
+                "files": {
+                  "screen.jpeg": "embedded\u002F0444150c2c031ef7f44caaa0725897453f39206c03dab57ddf1d6532b6aec5b0.jpeg"
+                },
+                "responses": {
+                  "": ""
+                },
+                "parameters": {},
+                "messageHandlers": {},
+                "title": "Mask",
+                "timeout": "200"
+              }
+            ]
+          }
+        },
+        {
+          "type": "lab.html.Page",
+          "items": [
+            {
+              "type": "text",
+              "title": "Break",
+              "content": "When you are ready, Press the 'Continue' button to proceed to the next set of trials."
+            }
+          ],
+          "scrollTop": true,
+          "submitButtonText": "Continue →",
+          "submitButtonPosition": "right",
+          "files": {},
+          "responses": {
+            "": ""
+          },
+          "parameters": {},
+          "messageHandlers": {},
+          "title": "Control Manip_Instructions"
+        },
+        {
+          "type": "lab.flow.Loop",
+          "templateParameters": [
+            {
+              "Context_Size": "P_Small Context Only.png",
+              "Position_H": "-175",
+              "Target_Size": "50",
+              "Position_V": "0"
+            },
+            {
+              "Context_Size": "P_Small Context Only.png",
+              "Position_H": "175",
+              "Target_Size": "50",
+              "Position_V": "0"
+            },
+            {
+              "Context_Size": "P_Large Context Only.png",
+              "Position_H": "-175",
+              "Target_Size": "50",
+              "Position_V": "0"
+            },
+            {
+              "Context_Size": "P_Large Context Only.png",
+              "Position_H": "175",
+              "Target_Size": "50",
+              "Position_V": "0"
+            },
+            {
+              "Context_Size": "Control Context Only.png",
+              "Position_H": "-175",
+              "Target_Size": "50",
+              "Position_V": "0"
+            },
+            {
+              "Context_Size": "Control Context Only.png",
+              "Position_H": "175",
+              "Target_Size": "50",
+              "Position_V": "0"
+            },
+            {
+              "Context_Size": "Control Context Only.png",
+              "Position_H": "-175",
+              "Target_Size": "40",
+              "Position_V": "0"
+            },
+            {
+              "Context_Size": "Control Context Only.png",
+              "Position_H": "175",
+              "Target_Size": "40",
+              "Position_V": "0"
+            },
+            {
+              "Context_Size": "Control Context Only.png",
+              "Position_H": "-175",
+              "Target_Size": "60",
+              "Position_V": "0"
+            },
+            {
+              "Context_Size": "Control Context Only.png",
+              "Position_H": "175",
+              "Target_Size": "60",
+              "Position_V": "0"
+            },
+            {
+              "Context_Size": "P_Small Context Only.png",
+              "Position_H": "0",
+              "Target_Size": "50",
+              "Position_V": "175"
+            },
+            {
+              "Context_Size": "P_Small Context Only.png",
+              "Position_H": "0",
+              "Target_Size": "50",
+              "Position_V": "-175"
+            },
+            {
+              "Context_Size": "P_Large Context Only.png",
+              "Position_H": "0",
+              "Target_Size": "50",
+              "Position_V": "175"
+            },
+            {
+              "Context_Size": "P_Large Context Only.png",
+              "Position_H": "0",
+              "Target_Size": "50",
+              "Position_V": "-175"
+            },
+            {
+              "Context_Size": "Control Context Only.png",
+              "Position_H": "0",
+              "Target_Size": "50",
+              "Position_V": "175"
+            },
+            {
+              "Context_Size": "Control Context Only.png",
+              "Position_H": "0",
+              "Target_Size": "50",
+              "Position_V": "-175"
+            },
+            {
+              "Context_Size": "Control Context Only.png",
+              "Position_H": "0",
+              "Target_Size": "40",
+              "Position_V": "175"
+            },
+            {
+              "Context_Size": "Control Context Only.png",
+              "Position_H": "0",
+              "Target_Size": "40",
+              "Position_V": "-175"
+            },
+            {
+              "Context_Size": "Control Context Only.png",
+              "Position_H": "0",
+              "Target_Size": "60",
+              "Position_V": "175"
+            },
+            {
+              "Context_Size": "Control Context Only.png",
+              "Position_H": "0",
+              "Target_Size": "60",
+              "Position_V": "-175"
+            }
+          ],
+          "sample": {
+            "mode": "draw",
+            "n": "100"
+          },
+          "files": {
+            "Control Context Only.png": "embedded\u002F5e04a73c6cbecd9dac6b3063848adb79e6b7e3fd02bd826bae15c4cd343720dc.png",
+            "P_Small Context Only.png": "embedded\u002Faf40cc0dbb8fe690520ca84449a67f81604c58e66d62189adaaa4c32f00eb819.png",
+            "P_Large Context Only.png": "embedded\u002F992a9d10481882a0cfe4bf27e5395035a6398ea122acfc48cd5163209d98b020.png",
+            "P_Small_Far Context Only.png": "embedded\u002F8f0579522952818b5e5ef468a76b6405674fea39f30203977dd5a6321ab75b20.png"
+          },
+          "responses": {
+            "": ""
+          },
+          "parameters": {},
+          "messageHandlers": {
+            "before:prepare": function anonymous(
+) {
+this.options.viewport = [800, 600]
+this.options.viewportScale = 1
+}
+          },
+          "title": "Experimental Trials_Vis_B2",
+          "shuffleGroups": [],
+          "template": {
+            "type": "lab.flow.Sequence",
+            "files": {},
+            "responses": {
+              "": ""
+            },
+            "parameters": {},
+            "messageHandlers": {
+              "before:prepare": function anonymous(
+) {
+this.options.viewport = [800, 600]
+this.options.viewportScale = 1
+}
+            },
+            "title": "Sequence",
+            "content": [
+              {
+                "type": "lab.canvas.Screen",
+                "content": [
+                  {
+                    "type": "aoi",
+                    "left": 0,
+                    "top": "0",
+                    "angle": 0,
+                    "width": 20.84,
+                    "height": 20.84,
+                    "stroke": null,
+                    "strokeWidth": 1,
+                    "fill": "rgba(0, 0, 0, 0.2)",
+                    "label": "Start_Button"
+                  },
+                  {
+                    "type": "rect",
+                    "left": "0",
+                    "top": "0",
+                    "angle": 0,
+                    "width": "600",
+                    "height": "600",
+                    "stroke": null,
+                    "strokeWidth": 1,
+                    "fill": "black"
+                  },
+                  {
+                    "type": "circle",
+                    "left": 0,
+                    "top": "0",
+                    "angle": 0,
+                    "width": 15,
+                    "height": 15,
+                    "stroke": "#aaaaaa",
+                    "strokeWidth": 1,
+                    "fill": "#dddddd"
+                  }
+                ],
+                "viewport": [
+                  800,
+                  600
+                ],
+                "files": {},
+                "responses": {
+                  "click @Start_Button": "Start Position"
+                },
+                "parameters": {},
+                "messageHandlers": {},
+                "title": "Start Button",
+                "plugins": [
+                  {
+                    "type": "mousetrap",
+                    "mode": "mousetrap",
+                    "path": "global.MousetrapPlugin"
+                  }
+                ]
+              },
+              {
+                "type": "lab.canvas.Screen",
+                "content": [
+                  {
+                    "type": "rect",
+                    "left": 0,
+                    "top": 0,
+                    "angle": 0,
+                    "width": "600",
+                    "height": "600",
+                    "stroke": null,
+                    "strokeWidth": 1,
+                    "fill": "black"
+                  },
+                  {
+                    "type": "image",
+                    "left": "${parameters.Position_H}",
+                    "top": "${parameters.Position_V}",
+                    "angle": 0,
+                    "width": "240",
+                    "height": "240",
+                    "stroke": null,
+                    "strokeWidth": 0,
+                    "fill": "black",
+                    "src": "${this.files[this.parameters.Context_Size]}"
+                  },
+                  {
+                    "type": "circle",
+                    "left": "${parameters.Position_H}",
+                    "top": "${parameters.Position_V}",
+                    "angle": 0,
+                    "width": "${parameters.Target_Size}",
+                    "height": 70,
+                    "stroke": "#ffffff",
+                    "strokeWidth": 1,
+                    "fill": "#ffffff"
+                  },
+                  {
+                    "type": "aoi",
+                    "left": "${parameters.Position_H}",
+                    "top": "${parameters.Position_V}",
+                    "angle": 0,
+                    "width": "${parameters.Target_Size}",
+                    "height": "${parameters.Target_Size}",
+                    "stroke": null,
+                    "strokeWidth": 1,
+                    "fill": "rgba(0, 0, 0, 0.2)",
+                    "label": "Response"
+                  }
+                ],
+                "viewport": [
+                  800,
+                  600
+                ],
+                "files": {
+                  "P_Small_3.png": "embedded\u002F6dc69d0480b14a98a83de75f92c0eca4e2669255731aa141a99f1be6da719c42.png",
+                  "P_Large_3.png": "embedded\u002Fd37f527663db56db4b0fdb663ab0dd627ead047fc61d08dd0f6eaa9aef6b2615.png",
+                  "Control_3.png": "embedded\u002F7e50a10442cfc7c81fc90163ae942334600b470c1821b5485b1c59f6e81548f2.png",
+                  "Control_3 (Big).png": "embedded\u002F708b6f94fcde61e1648d34d6678481c4b21d066970e2ca1ad797bbd3752cdf8e.png",
+                  "Control_3 (Small).png": "embedded\u002F946b8f3f3b01a592a1b8fa9b2c099dd13287ee645f541445da4ecaec9e0615d9.png",
+                  "P_Small Context Only.png": "embedded\u002Faf40cc0dbb8fe690520ca84449a67f81604c58e66d62189adaaa4c32f00eb819.png",
+                  "P_Large Context Only.png": "embedded\u002Fb442ec0b7fcb1633cb33796d7f9d1748c72e40ee71643d664de1b30999111e28.png",
+                  "Control Context Only.png": "embedded\u002F5e04a73c6cbecd9dac6b3063848adb79e6b7e3fd02bd826bae15c4cd343720dc.png"
+                },
+                "responses": {
+                  "click @Response": "Response"
+                },
+                "parameters": {},
+                "messageHandlers": {},
+                "title": "Trial",
                 "plugins": [
                   {
                     "type": "mousetrap",
@@ -2170,7 +2523,7 @@ this.options.viewportScale = 1
                 },
                 "parameters": {},
                 "messageHandlers": {},
-                "title": "Practice",
+                "title": "Trial_1",
                 "plugins": [
                   {
                     "type": "mousetrap",
@@ -2225,7 +2578,7 @@ this.options.viewportScale = 1
                 },
                 "parameters": {},
                 "messageHandlers": {},
-                "title": "Practice",
+                "title": "Trial_2",
                 "plugins": [
                   {
                     "type": "mousetrap",
@@ -2267,26 +2620,6 @@ this.options.viewportScale = 1
               }
             ]
           }
-        },
-        {
-          "type": "lab.html.Page",
-          "items": [
-            {
-              "type": "text",
-              "title": "Press the 'Continue' button below to proceed to the next set of trials."
-            }
-          ],
-          "scrollTop": true,
-          "submitButtonText": "Continue →",
-          "submitButtonPosition": "right",
-          "files": {},
-          "responses": {
-            "": ""
-          },
-          "parameters": {},
-          "messageHandlers": {},
-          "title": "Control Manip_Instructions",
-          "skip": true
         },
         {
           "type": "lab.html.Page",
@@ -2567,7 +2900,7 @@ this.options.viewportScale = 1
                     "left": "0",
                     "top": "0",
                     "angle": 0,
-                    "width": "800",
+                    "width": "600",
                     "height": "600",
                     "stroke": null,
                     "strokeWidth": 1,
@@ -2688,7 +3021,7 @@ this.options.viewportScale = 1
                     "left": 0,
                     "top": 0,
                     "angle": 0,
-                    "width": "800",
+                    "width": "600",
                     "height": "600",
                     "stroke": null,
                     "strokeWidth": 0,
