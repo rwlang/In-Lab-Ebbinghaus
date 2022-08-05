@@ -337,7 +337,8 @@ document.body.style.color = "black"
           },
           "parameters": {},
           "messageHandlers": {},
-          "title": "Page"
+          "title": "Page",
+          "skip": true
         },
         {
           "type": "lab.html.Page",
