@@ -354,20 +354,8 @@ document.body.style.color = "black"
             {
               "required": true,
               "type": "text",
-              "title": "Principal Investigators:",
-              "content": "Ryan Langridge (PhD Candidate, Psychology, University of Manitoba, langrirw@myumanitoba.ca) "
-            },
-            {
-              "required": true,
-              "type": "text",
-              "content": "Gabrielle David (Undergraduate student, Department of Biological Sciences, University of Manitoba)",
-              "title": ""
-            },
-            {
-              "required": true,
-              "type": "text",
-              "content": "Jasmine Pomrenke, Undergraduate student, Department of Psychology, University of Manitoba)",
-              "title": ""
+              "title": "Principal Investigator:",
+              "content": "Dr. Ryan Langridge (Postdoctoral Fellow, Psychology, University of Manitoba, langrirw@myumanitoba.ca) "
             },
             {
               "required": true,
@@ -3432,18 +3420,8 @@ this.end()
             {
               "required": true,
               "type": "text",
-              "content": "Ryan Langridge (PhD Candidate, Psychology, University of Manitoba, langrirw@myumanitoba.ca),",
-              "title": "Principal Investigators:"
-            },
-            {
-              "required": true,
-              "type": "text",
-              "content": "Gabrielle David (Undergraduate student, Department of Biological Sciences, University of Manitoba),"
-            },
-            {
-              "required": true,
-              "type": "text",
-              "content": "Jasmine Pomrenke, Undergraduate student, Department of Psychology, University of Manitoba)"
+              "content": "Dr. Ryan Langridge (Postdoctoral Fellow, Psychology, University of Manitoba, langrirw@myumanitoba.ca),",
+              "title": "Principal Investigator:"
             },
             {
               "required": true,
