@@ -355,7 +355,13 @@ document.body.style.color = "black"
               "required": true,
               "type": "text",
               "title": "Principal Investigator:",
-              "content": "Dr. Ryan Langridge (Postdoctoral Fellow, Psychology, University of Manitoba, langrirw@myumanitoba.ca) "
+              "content": "Dr. Ryan Langridge (Postdoctoral Research Associate, Psychology, University of Manitoba, langrirw@myumanitoba.ca) "
+            },
+            {
+              "required": true,
+              "type": "text",
+              "title": "Research Assistant",
+              "content": "Anthony Ngo (Undergraduate Student, University of Manitoba)"
             },
             {
               "required": true,
@@ -1101,17 +1107,6 @@ this.options.viewportScale = 1
                     "src": "${this.files[this.parameters.Context_Size]}"
                   },
                   {
-                    "type": "circle",
-                    "left": "${parameters.Position_H}",
-                    "top": "${parameters.Position_V}",
-                    "angle": 0,
-                    "width": "${parameters.Target_Size}",
-                    "height": 70,
-                    "stroke": "#ffffff",
-                    "strokeWidth": 1,
-                    "fill": "#ffffff"
-                  },
-                  {
                     "type": "aoi",
                     "left": "${parameters.Position_H}",
                     "top": "${parameters.Position_V}",
@@ -1122,6 +1117,17 @@ this.options.viewportScale = 1
                     "strokeWidth": 1,
                     "fill": "rgba(0, 0, 0, 0.2)",
                     "label": "Response"
+                  },
+                  {
+                    "type": "circle",
+                    "left": "${parameters.Position_H}",
+                    "top": "${parameters.Position_V}",
+                    "angle": 0,
+                    "width": "${parameters.Target_Size}",
+                    "height": 70,
+                    "stroke": "#ffffff",
+                    "strokeWidth": 1,
+                    "fill": "#ffffff"
                   }
                 ],
                 "viewport": [
@@ -1858,18 +1864,27 @@ this.options.viewportScale = 1
             {
               "type": "text",
               "title": "Practice",
-              "content": "A grey 'start' button will appear in the center of the screen, along with a target circle. Press this button to begin each trial."
+              "content": "A grey 'start' button will appear in the center of the screen. Press this button to begin each trial."
             },
             {
               "required": true,
               "type": "text",
               "title": "",
-              "content": "Clicking the start button will cause the target to disappear.  After clicking the start button, move your cursor and click the center of the disappeared target AS QUICKLY AND AS ACCURATELY AS POSSIBLE."
+              "content": "Clicking the start button will cause a target to appear.  PLEASE DO NOT MOVE YOUR CURSOR WHILE THE TARGET IS VISIBLE.  The target will disappear after 2 seconds. "
             },
             {
               "required": true,
               "type": "text",
-              "content": "Click 'Continue' to begin.  Good Luck!"
+              "content": "Once the target disappears, move your cursor and click the center of the disappeared target AS QUICKLY AND AS ACCURATELY AS POSSIBLE."
+            },
+            {
+              "required": true,
+              "type": "text"
+            },
+            {
+              "required": true,
+              "type": "text",
+              "content": "Click 'Continue' to begin."
             }
           ],
           "scrollTop": true,
@@ -2067,29 +2082,6 @@ this.options.viewportScale = 1
                     "fill": "black"
                   },
                   {
-                    "type": "image",
-                    "left": "${parameters.Position_H}",
-                    "top": "${parameters.Position_V}",
-                    "angle": 0,
-                    "width": "240",
-                    "height": "240",
-                    "stroke": null,
-                    "strokeWidth": 0,
-                    "fill": "black",
-                    "src": "${this.files[this.parameters.Context_Size]}"
-                  },
-                  {
-                    "type": "circle",
-                    "left": "${parameters.Position_H}",
-                    "top": "${parameters.Position_V}",
-                    "angle": 0,
-                    "width": "${parameters.Target_Size}",
-                    "height": 70,
-                    "stroke": "#ffffff",
-                    "strokeWidth": 1,
-                    "fill": "#ffffff"
-                  },
-                  {
                     "type": "circle",
                     "left": "0",
                     "top": 0,
@@ -2132,7 +2124,7 @@ this.options.viewportScale = 1
                 },
                 "parameters": {},
                 "messageHandlers": {},
-                "title": "Practice",
+                "title": "Practice_0",
                 "plugins": [
                   {
                     "type": "mousetrap",
@@ -2140,6 +2132,71 @@ this.options.viewportScale = 1
                     "path": "global.MousetrapPlugin"
                   }
                 ]
+              },
+              {
+                "type": "lab.canvas.Screen",
+                "content": [
+                  {
+                    "type": "rect",
+                    "left": 0,
+                    "top": 0,
+                    "angle": 0,
+                    "width": "600",
+                    "height": 600,
+                    "stroke": null,
+                    "strokeWidth": 1,
+                    "fill": "black"
+                  },
+                  {
+                    "type": "image",
+                    "left": "${parameters.Position_H}",
+                    "top": "${parameters.Position_V}",
+                    "angle": 0,
+                    "width": "240",
+                    "height": "240",
+                    "stroke": null,
+                    "strokeWidth": 0,
+                    "fill": "black",
+                    "src": "${this.files[this.parameters.Context_Size]}"
+                  },
+                  {
+                    "type": "circle",
+                    "left": "${parameters.Position_H}",
+                    "top": "${parameters.Position_V}",
+                    "angle": 0,
+                    "width": "${parameters.Target_Size}",
+                    "height": 70,
+                    "stroke": "#ffffff",
+                    "strokeWidth": 1,
+                    "fill": "#ffffff"
+                  }
+                ],
+                "viewport": [
+                  800,
+                  600
+                ],
+                "files": {
+                  "P_Small_3.png": "embedded\u002F6dc69d0480b14a98a83de75f92c0eca4e2669255731aa141a99f1be6da719c42.png",
+                  "P_Large_3.png": "embedded\u002Fd37f527663db56db4b0fdb663ab0dd627ead047fc61d08dd0f6eaa9aef6b2615.png",
+                  "Control_3.png": "embedded\u002F7e50a10442cfc7c81fc90163ae942334600b470c1821b5485b1c59f6e81548f2.png",
+                  "Control_3 (Big).png": "embedded\u002F708b6f94fcde61e1648d34d6678481c4b21d066970e2ca1ad797bbd3752cdf8e.png",
+                  "Control_3 (Small).png": "embedded\u002F946b8f3f3b01a592a1b8fa9b2c099dd13287ee645f541445da4ecaec9e0615d9.png",
+                  "P_Small Context Only.png": "embedded\u002Faf40cc0dbb8fe690520ca84449a67f81604c58e66d62189adaaa4c32f00eb819.png",
+                  "P_Large Context Only.png": "embedded\u002Fb442ec0b7fcb1633cb33796d7f9d1748c72e40ee71643d664de1b30999111e28.png",
+                  "Control Context Only.png": "embedded\u002F5e04a73c6cbecd9dac6b3063848adb79e6b7e3fd02bd826bae15c4cd343720dc.png"
+                },
+                "responses": {},
+                "parameters": {},
+                "messageHandlers": {},
+                "title": "Practice_1",
+                "plugins": [
+                  {
+                    "type": "mousetrap",
+                    "mode": "mousetrap",
+                    "path": "global.MousetrapPlugin"
+                  }
+                ],
+                "timeout": "2000"
               },
               {
                 "type": "lab.canvas.Screen",
@@ -2236,7 +2293,7 @@ this.options.viewportScale = 1
             {
               "type": "text",
               "title": "Part 2: Experimental Trials",
-              "content": "Click the 'Continue' button to begin the actual experiment"
+              "content": "Click the 'Continue' button to begin the actual experiment."
             }
           ],
           "scrollTop": true,
@@ -2428,27 +2485,16 @@ this.options.viewportScale = 1
                     "fill": "black"
                   },
                   {
-                    "type": "image",
-                    "left": "${parameters.Position_H}",
-                    "top": "${parameters.Position_V}",
+                    "type": "aoi",
+                    "left": 0,
+                    "top": 0,
                     "angle": 0,
-                    "width": "240",
-                    "height": "240",
+                    "width": "15",
+                    "height": "15",
                     "stroke": null,
-                    "strokeWidth": 0,
-                    "fill": "black",
-                    "src": "${this.files[this.parameters.Context_Size]}"
-                  },
-                  {
-                    "type": "circle",
-                    "left": "${parameters.Position_H}",
-                    "top": "${parameters.Position_V}",
-                    "angle": 0,
-                    "width": "${parameters.Target_Size}",
-                    "height": 70,
-                    "stroke": "#ffffff",
                     "strokeWidth": 1,
-                    "fill": "#ffffff"
+                    "fill": "rgba(0, 0, 0, 0.2)",
+                    "label": "Start_Click"
                   },
                   {
                     "type": "circle",
@@ -2460,18 +2506,6 @@ this.options.viewportScale = 1
                     "stroke": "#aaaaaa",
                     "strokeWidth": 1,
                     "fill": "#dddddd"
-                  },
-                  {
-                    "type": "aoi",
-                    "left": 0,
-                    "top": 0,
-                    "angle": 0,
-                    "width": "15",
-                    "height": "15",
-                    "stroke": null,
-                    "strokeWidth": 1,
-                    "fill": "rgba(0, 0, 0, 0.2)",
-                    "label": "Start_Click"
                   }
                 ],
                 "viewport": [
@@ -2493,7 +2527,7 @@ this.options.viewportScale = 1
                 },
                 "parameters": {},
                 "messageHandlers": {},
-                "title": "Trial_1",
+                "title": "Trial_0",
                 "plugins": [
                   {
                     "type": "mousetrap",
@@ -2501,6 +2535,71 @@ this.options.viewportScale = 1
                     "path": "global.MousetrapPlugin"
                   }
                 ]
+              },
+              {
+                "type": "lab.canvas.Screen",
+                "content": [
+                  {
+                    "type": "rect",
+                    "left": 0,
+                    "top": 0,
+                    "angle": 0,
+                    "width": "600",
+                    "height": 600,
+                    "stroke": null,
+                    "strokeWidth": 1,
+                    "fill": "black"
+                  },
+                  {
+                    "type": "image",
+                    "left": "${parameters.Position_H}",
+                    "top": "${parameters.Position_V}",
+                    "angle": 0,
+                    "width": "240",
+                    "height": "240",
+                    "stroke": null,
+                    "strokeWidth": 0,
+                    "fill": "black",
+                    "src": "${this.files[this.parameters.Context_Size]}"
+                  },
+                  {
+                    "type": "circle",
+                    "left": "${parameters.Position_H}",
+                    "top": "${parameters.Position_V}",
+                    "angle": 0,
+                    "width": "${parameters.Target_Size}",
+                    "height": 70,
+                    "stroke": "#ffffff",
+                    "strokeWidth": 1,
+                    "fill": "#ffffff"
+                  }
+                ],
+                "viewport": [
+                  800,
+                  600
+                ],
+                "files": {
+                  "P_Small_3.png": "embedded\u002F6dc69d0480b14a98a83de75f92c0eca4e2669255731aa141a99f1be6da719c42.png",
+                  "P_Large_3.png": "embedded\u002Fd37f527663db56db4b0fdb663ab0dd627ead047fc61d08dd0f6eaa9aef6b2615.png",
+                  "Control_3.png": "embedded\u002F7e50a10442cfc7c81fc90163ae942334600b470c1821b5485b1c59f6e81548f2.png",
+                  "Control_3 (Big).png": "embedded\u002F708b6f94fcde61e1648d34d6678481c4b21d066970e2ca1ad797bbd3752cdf8e.png",
+                  "Control_3 (Small).png": "embedded\u002F946b8f3f3b01a592a1b8fa9b2c099dd13287ee645f541445da4ecaec9e0615d9.png",
+                  "P_Small Context Only.png": "embedded\u002Faf40cc0dbb8fe690520ca84449a67f81604c58e66d62189adaaa4c32f00eb819.png",
+                  "P_Large Context Only.png": "embedded\u002Fb442ec0b7fcb1633cb33796d7f9d1748c72e40ee71643d664de1b30999111e28.png",
+                  "Control Context Only.png": "embedded\u002F5e04a73c6cbecd9dac6b3063848adb79e6b7e3fd02bd826bae15c4cd343720dc.png"
+                },
+                "responses": {},
+                "parameters": {},
+                "messageHandlers": {},
+                "title": "Trial_1",
+                "plugins": [
+                  {
+                    "type": "mousetrap",
+                    "mode": "mousetrap",
+                    "path": "global.MousetrapPlugin"
+                  }
+                ],
+                "timeout": "2000"
               },
               {
                 "type": "lab.canvas.Screen",
@@ -2522,7 +2621,7 @@ this.options.viewportScale = 1
                     "top": "${parameters.Position_V}",
                     "angle": 0,
                     "width": "${parameters.Target_Size}",
-                    "height": 50,
+                    "height": "${parameters.Target_Size}",
                     "stroke": null,
                     "strokeWidth": 1,
                     "fill": "rgba(0, 0, 0, 0.2)",
@@ -2789,29 +2888,6 @@ this.options.viewportScale = 1
                     "fill": "black"
                   },
                   {
-                    "type": "image",
-                    "left": "${parameters.Position_H}",
-                    "top": "${parameters.Position_V}",
-                    "angle": 0,
-                    "width": "240",
-                    "height": "240",
-                    "stroke": null,
-                    "strokeWidth": 0,
-                    "fill": "black",
-                    "src": "${this.files[this.parameters.Context_Size]}"
-                  },
-                  {
-                    "type": "circle",
-                    "left": "${parameters.Position_H}",
-                    "top": "${parameters.Position_V}",
-                    "angle": 0,
-                    "width": "${parameters.Target_Size}",
-                    "height": 70,
-                    "stroke": "#ffffff",
-                    "strokeWidth": 1,
-                    "fill": "#ffffff"
-                  },
-                  {
                     "type": "circle",
                     "left": "0",
                     "top": 0,
@@ -2854,7 +2930,7 @@ this.options.viewportScale = 1
                 },
                 "parameters": {},
                 "messageHandlers": {},
-                "title": "Trial_1",
+                "title": "Trial_0",
                 "plugins": [
                   {
                     "type": "mousetrap",
@@ -2862,6 +2938,71 @@ this.options.viewportScale = 1
                     "path": "global.MousetrapPlugin"
                   }
                 ]
+              },
+              {
+                "type": "lab.canvas.Screen",
+                "content": [
+                  {
+                    "type": "rect",
+                    "left": 0,
+                    "top": 0,
+                    "angle": 0,
+                    "width": "600",
+                    "height": 600,
+                    "stroke": null,
+                    "strokeWidth": 1,
+                    "fill": "black"
+                  },
+                  {
+                    "type": "image",
+                    "left": "${parameters.Position_H}",
+                    "top": "${parameters.Position_V}",
+                    "angle": 0,
+                    "width": "240",
+                    "height": "240",
+                    "stroke": null,
+                    "strokeWidth": 0,
+                    "fill": "black",
+                    "src": "${this.files[this.parameters.Context_Size]}"
+                  },
+                  {
+                    "type": "circle",
+                    "left": "${parameters.Position_H}",
+                    "top": "${parameters.Position_V}",
+                    "angle": 0,
+                    "width": "${parameters.Target_Size}",
+                    "height": 70,
+                    "stroke": "#ffffff",
+                    "strokeWidth": 1,
+                    "fill": "#ffffff"
+                  }
+                ],
+                "viewport": [
+                  800,
+                  600
+                ],
+                "files": {
+                  "P_Small_3.png": "embedded\u002F6dc69d0480b14a98a83de75f92c0eca4e2669255731aa141a99f1be6da719c42.png",
+                  "P_Large_3.png": "embedded\u002Fd37f527663db56db4b0fdb663ab0dd627ead047fc61d08dd0f6eaa9aef6b2615.png",
+                  "Control_3.png": "embedded\u002F7e50a10442cfc7c81fc90163ae942334600b470c1821b5485b1c59f6e81548f2.png",
+                  "Control_3 (Big).png": "embedded\u002F708b6f94fcde61e1648d34d6678481c4b21d066970e2ca1ad797bbd3752cdf8e.png",
+                  "Control_3 (Small).png": "embedded\u002F946b8f3f3b01a592a1b8fa9b2c099dd13287ee645f541445da4ecaec9e0615d9.png",
+                  "P_Small Context Only.png": "embedded\u002Faf40cc0dbb8fe690520ca84449a67f81604c58e66d62189adaaa4c32f00eb819.png",
+                  "P_Large Context Only.png": "embedded\u002Fb442ec0b7fcb1633cb33796d7f9d1748c72e40ee71643d664de1b30999111e28.png",
+                  "Control Context Only.png": "embedded\u002F5e04a73c6cbecd9dac6b3063848adb79e6b7e3fd02bd826bae15c4cd343720dc.png"
+                },
+                "responses": {},
+                "parameters": {},
+                "messageHandlers": {},
+                "title": "Trial_1",
+                "plugins": [
+                  {
+                    "type": "mousetrap",
+                    "mode": "mousetrap",
+                    "path": "global.MousetrapPlugin"
+                  }
+                ],
+                "timeout": "2000"
               },
               {
                 "type": "lab.canvas.Screen",
@@ -2883,7 +3024,7 @@ this.options.viewportScale = 1
                     "top": "${parameters.Position_V}",
                     "angle": 0,
                     "width": "${parameters.Target_Size}",
-                    "height": 50,
+                    "height": "${parameters.Target_Size}",
                     "stroke": null,
                     "strokeWidth": 1,
                     "fill": "rgba(0, 0, 0, 0.2)",
@@ -3422,6 +3563,12 @@ this.end()
               "type": "text",
               "content": "Dr. Ryan Langridge (Postdoctoral Fellow, Psychology, University of Manitoba, langrirw@myumanitoba.ca),",
               "title": "Principal Investigator:"
+            },
+            {
+              "required": true,
+              "type": "text",
+              "title": "Research Assistant",
+              "content": "Anthony Ngo (Undergraduate Student, University of Manitoba)"
             },
             {
               "required": true,
