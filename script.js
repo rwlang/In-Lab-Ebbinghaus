@@ -3597,8 +3597,14 @@ this.end()
             {
               "required": true,
               "type": "text",
-              "content": "Dr. Ryan Langridge (Postdoctoral Fellow, Psychology, University of Manitoba, langrirw@myumanitoba.ca),",
+              "content": "Dr. Ryan Langridge (Postdoctoral Research Associate, Psychology, University of Manitoba, langrirw@myumanitoba.ca),",
               "title": "Principal Investigator:"
+            },
+            {
+              "required": true,
+              "type": "text",
+              "title": "Research Assistant",
+              "content": "Anthony Ngo (Undergraduate Student, University of Manitoba)"
             },
             {
               "required": true,
